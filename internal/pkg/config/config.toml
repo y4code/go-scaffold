@@ -1,0 +1,22 @@
+profile = ""
+[db]
+host = ""
+name = ""
+password = ""
+username = ""
+
+[admin-service]
+host = ""
+get-service-card = ""
+[activiti-service]
+host = ""
+[api-factory-service]
+host = ""
+[configcenter-service]
+host = ""
+[email-service]
+host = ""
+[urp-service]
+host = ""
+[user-mgmt-service]
+host = ""
