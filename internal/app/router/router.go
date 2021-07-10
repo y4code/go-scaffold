@@ -1,9 +1,10 @@
 package router
 
 import (
-	"github.com/gin-gonic/gin"
 	"go-scaffold/internal/pkg/client"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 func SetupRouter(clt *client.Client) *gin.Engine {
