@@ -2,24 +2,38 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/swaggo/swag"
 	"go-scaffold/internal/pkg/client"
 	"net/http"
 )
 
-var clt *client.Client
-
-func SetupRouter(client *client.Client) *gin.Engine {
-	clt = client
+func SetupRouter(clt *client.Client) *gin.Engine {
 	r := gin.Default()
-	r.GET("/swagger.json", func(c *gin.Context) {
-		swaggerfile, _ := swag.ReadDoc()
-		c.String(200, "%s", swaggerfile)
-	})
-	r.GET("/example", GetExample)
+
+	r.GET("/examples", GetAllExamples(clt))
+	r.GET("/markets", GetAllMarkets(clt))
 	return r
 }
 
-func GetExample(c *gin.Context) {
-	c.JSON(http.StatusOK, clt.Config.Profile)
+func GetAllExamples(clt *client.Client) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		c.JSON(http.StatusOK, clt.Config.Profile)
+	}
+}
+
+func GetAllMarkets(clt *client.Client) gin.HandlerFunc {
+	return func(c *gin.Context) {
+
+		if customAuth := c.GetHeader("custom_auth"); customAuth == "" {
+			c.JSON(http.StatusBadRequest, gin.H{
+				"code":    "40000",
+				"message": "parse params error",
+				"content": "",
+			})
+			return
+		}
+
+		allExamples := clt.ExampleService.GetAllExamples()
+		c.JSON(http.StatusOK, allExamples)
+
+	}
 }

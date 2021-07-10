@@ -2,22 +2,26 @@ package main
 
 import (
 	"go-scaffold/internal/app/router"
+	"go-scaffold/internal/app/service"
 	"go-scaffold/internal/pkg/client"
 	"go-scaffold/internal/pkg/config"
-	"os"
+	"go-scaffold/internal/pkg/storage"
 )
 
 func main() {
-	config := config.NewConfig("insuremo-service").
+
+	// TODO: refactor with Viper
+	config := config.NewConfig("service-name").
 		LoadLocalConf().
 		OverrideWithRemoteConf()
-	client := client.NewClient(config)
+
+	memory := storage.NewStorage(storage.TypeMemory)
+	exampleService := service.NewExampleService(memory)
+	marketService := service.NewMarketService(memory)
+
+	client := client.NewClient(config, exampleService, marketService)
+
 	r := router.SetupRouter(client)
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = ":8080"
-	} else {
-		port = ":" + port
-	}
-	r.Run(port)
+
+	r.Run(":8080")
 }
