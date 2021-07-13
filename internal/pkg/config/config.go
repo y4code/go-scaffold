@@ -4,7 +4,7 @@ import (
 	_ "embed"
 	"fmt"
 	"github.com/pelletier/go-toml"
-	"go-scaffold/pkg/reflect"
+	"github.com/y4code/go-scaffold/pkg/reflect"
 )
 
 //go:embed config.toml

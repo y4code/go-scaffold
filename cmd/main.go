@@ -1,11 +1,11 @@
 package main
 
 import (
-	"go-scaffold/internal/app/router"
-	"go-scaffold/internal/app/service"
-	"go-scaffold/internal/pkg/client"
-	"go-scaffold/internal/pkg/config"
-	"go-scaffold/internal/pkg/storage"
+	"github.com/y4code/go-scaffold/internal/app/router"
+	"github.com/y4code/go-scaffold/internal/app/service"
+	"github.com/y4code/go-scaffold/internal/pkg/client"
+	"github.com/y4code/go-scaffold/internal/pkg/config"
+	"github.com/y4code/go-scaffold/internal/pkg/storage"
 )
 
 func main() {

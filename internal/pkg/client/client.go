@@ -1,8 +1,8 @@
 package client
 
 import (
-	"go-scaffold/internal/app/service"
-	"go-scaffold/internal/pkg/config"
+	"github.com/y4code/go-scaffold/internal/app/service"
+	"github.com/y4code/go-scaffold/internal/pkg/config"
 )
 
 type Client struct {

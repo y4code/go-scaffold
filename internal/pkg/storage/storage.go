@@ -1,7 +1,7 @@
 package storage
 
 import (
-	"go-scaffold/internal/app"
+	"github.com/y4code/go-scaffold/internal/app"
 )
 
 const (

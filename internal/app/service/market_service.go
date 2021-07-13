@@ -1,8 +1,8 @@
 package service
 
 import (
-	"go-scaffold/internal/app"
-	"go-scaffold/internal/pkg/storage"
+	"github.com/y4code/go-scaffold/internal/app"
+	"github.com/y4code/go-scaffold/internal/pkg/storage"
 )
 
 type MarketService interface {

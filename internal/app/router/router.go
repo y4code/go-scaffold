@@ -1,7 +1,7 @@
 package router
 
 import (
-	"go-scaffold/internal/pkg/client"
+	"github.com/y4code/go-scaffold/internal/pkg/client"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

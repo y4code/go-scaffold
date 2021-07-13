@@ -1,4 +1,4 @@
-module go-scaffold
+module github.com/y4code/go-scaffold
 
 go 1.16
 
